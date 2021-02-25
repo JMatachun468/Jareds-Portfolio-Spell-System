@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0aa0571bb79e3e46948d516dc479a65, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  spellName: Fireball
+  abilitySprite: {fileID: 21300000, guid: ad11613fdb2cd34438e3fa4a1fa062a7, type: 3}
+  testMat: {fileID: 2100000, guid: 860fcaf70d6e77e4bbb79f58047eb102, type: 2}
+  spell3DModel: {fileID: 8552499976075887724, guid: c62c31a641e81764787884ddde47155c,
+    type: 3}
+  castTime: 1
+  projectileSpeed: 0.1
+  isProjectile: 1
+  isDOT: 0
