@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BaseSpell : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class BaseSpell : MonoBehaviour
     private GameObject target;
     [SerializeField]
     private float projectileSpeed;
+    [SerializeField]
+    private GameObject damageNumbers;
 
     private void Awake()
     {
@@ -36,15 +39,16 @@ public class BaseSpell : MonoBehaviour
     }
 
     /// <summary>
-    /// Pass the SpellScriptableObject into s, and the intended target to t
+    /// Pass the SpellScriptableObject into s, the intended target to t, and the damage number prefab to d
     /// </summary>
     /// <param name="s"></param>
-    public void PopulateVariables(SpellScriptableObject s, GameObject t)
+    public void PopulateVariables(SpellScriptableObject s, GameObject t, GameObject d)
     {
         projectileMeshFilter = gameObject.GetComponent<MeshFilter>();
         projectileMeshRenderer = gameObject.GetComponent<MeshRenderer>();
         spell = s;
         target = t;
+        damageNumbers = d;
         PopulateVariables(spell.projectileSpeed, spell.spell3DModel.sharedMesh, spell.testMat);
     }
     /// <summary>
@@ -67,10 +71,14 @@ public class BaseSpell : MonoBehaviour
 
     public void OnTriggerEnter(Collider other) //checks to make sure collider is owned by the target and then executes code
     {
-        Debug.Log("in trigger enter");
         if(other.gameObject == target)
         {
             Debug.Log(target.name + " has been hit by " + spell.spellName);
+            GameObject damage = Instantiate(damageNumbers, target.transform);
+            if(damage.GetComponentInChildren<DamageNumbers>())
+            {
+                damage.GetComponentInChildren<DamageNumbers>().damage = spell.damage;
+            }
             Destroy(gameObject);
         }
     }

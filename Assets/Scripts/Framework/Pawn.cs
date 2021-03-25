@@ -44,11 +44,50 @@ public class Pawn : Actor
     {
 
     }
-    public virtual void EndInteract()
+
+    public virtual void Fire1(bool clicked, Vector2 mousePos)
     {
 
     }
-    public virtual void Fire1(bool clicked)
+
+    public virtual void ActionBar1(bool input)
+    {
+        
+    }
+    public virtual void ActionBar2(bool input)
+    {
+
+    }
+    public virtual void ActionBar3(bool input)
+    {
+
+    }
+    public virtual void ActionBar4(bool input)
+    {
+
+    }
+    public virtual void ActionBar5(bool input)
+    {
+
+    }
+    public virtual void ActionBar6(bool input)
+    {
+
+    }
+    public virtual void ActionBar7(bool input)
+    {
+
+    }
+    public virtual void ActionBar8(bool input)
+    {
+
+    }
+    public virtual void ActionBar9(bool input)
+    {
+
+    }
+
+    public virtual void ActionBar0(bool input)
     {
 
     }
