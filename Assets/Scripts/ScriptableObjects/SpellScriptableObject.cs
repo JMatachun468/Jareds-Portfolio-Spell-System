@@ -9,7 +9,8 @@ public class SpellScriptableObject : ScriptableObject
     public Sprite abilitySprite;
     public Material testMat;
     public MeshFilter spell3DModel;
-    public float damage;
+    public int manaCost;
+    public int damage;
     public float castTime;
     public float projectileSpeed;
     public bool isProjectile;

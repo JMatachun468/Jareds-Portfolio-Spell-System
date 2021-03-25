@@ -9,6 +9,13 @@ public class PlayerPawn : Pawn
 {
     Rigidbody rb;
 
+    [Header("Player Stats")]
+    public int strength;
+    public int stamina;
+    public int intellect;
+    public int spirit;
+    public int agility;
+    
     [Header("UI Variables")]
     public GameObject PlayerUICanvas; //reference to canvas for UI
     public GameObject SpellTimerUIPrefab; //prefab for cast timer bar
@@ -60,6 +67,11 @@ public class PlayerPawn : Pawn
     public void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+
+        maxHealth = stamina * 10;
+        currentHealth = maxHealth;
+        maxMana = intellect * 10;
+        currentMana = maxMana;
     }
 
     public void Update()
@@ -68,6 +80,9 @@ public class PlayerPawn : Pawn
         {
             GCDTimer -= Time.deltaTime;
         }
+
+
+
     }
 
     public void SetCamPitch(float value) //pitches the camera up and down seperate from the player model
@@ -310,9 +325,14 @@ public class PlayerPawn : Pawn
 
         if (!casting) //checks to make sure we aren't already casting something
         {
+            if(currentMana < spellToCast.manaCost)
+            {
+                return;
+            }
             spellBeingCasted = StartCoroutine(CastSpell(spellToCast, startingTarget)); //stores our currently casted spell coroutine for later reference
             Debug.Log(spellBeingCasted);
         }
+
     }
 
     public IEnumerator CastSpell(SpellScriptableObject spellToCast, GameObject startingTarget)
@@ -328,6 +348,7 @@ public class PlayerPawn : Pawn
 
         yield return new WaitForSeconds(spellToCast.castTime); //Waits for cast time, animation should play, then casts the spell
 
+        currentMana -= spellToCast.manaCost;
         GameObject castedSpell = new GameObject(); //empty gameobject
         castedSpell.transform.position = gameObject.transform.position; //set it to our position, In future will be a empty gameObject on the playerPawn for transforn.position purposes
         castedSpell.name = originalSpell.name;

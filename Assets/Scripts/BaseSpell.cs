@@ -79,6 +79,10 @@ public class BaseSpell : MonoBehaviour
             {
                 damage.GetComponentInChildren<DamageNumbers>().damage = spell.damage;
             }
+            if (other.gameObject.GetComponent<Actor>())
+            {
+                target.GetComponent<Actor>().takeDamage(spell.damage);
+            }
             Destroy(gameObject);
         }
     }

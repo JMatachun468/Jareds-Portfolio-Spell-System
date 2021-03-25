@@ -17,6 +17,7 @@ MonoBehaviour:
   testMat: {fileID: 2100000, guid: a8d8a80d03a2d4542855000cf0872e49, type: 2}
   spell3DModel: {fileID: 2968917677595414608, guid: df7a112dd7dd9074c94a224158f8a401,
     type: 3}
+  manaCost: 10
   damage: 5
   castTime: 0
   projectileSpeed: 0.05
