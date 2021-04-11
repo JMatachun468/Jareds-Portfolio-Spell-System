@@ -52,20 +52,30 @@ public class PlayerPawn : Pawn
 
     [Header("Spell Variables")]
     public SpellScriptableObject spell; //current selected spell, will have changed funtionality in future
-    public GameObject target; //our currently selected target
     public bool casting; //are we casting
     public Coroutine spellBeingCasted; //stored coroutine for spell cast
     public Coroutine spellUITimer; //stored coroutine for UI timer
-    public GameObject currentTargetIndicator; //reference to current target indicator prefab in scene above target
-    public GameObject targetIndicatorPrefab; //prefab above target
     public float GlobalCoolDown; //GCD is a buffer between ability casts that begins countdown immediately after casting a spell, mostly effects instant cast or low cast time abilities
     public float GCDTimer; //timer for the GlobalCoolDown
+
+    [Header("Targeting Variables")]
+    public GameObject target; //our currently selected target
+    public GameObject currentEnemyPortrait; //UI portrait of our currently targeted enemy
+    public GameObject currentTargetIndicator; //reference to current target indicator prefab in scene above target
+    public GameObject enemyPortraitPrefab; //prefab for enemy portraits
+    public GameObject targetIndicatorPrefab; //prefab above target
+
+    [Header("Animation Variables")]
+    public int rotationSlerpSpeed;
+    public Animator animator;
+    public GameObject playerModel;
 
     //bool for interact
     public bool InteractE = false;
 
     public void Start()
     {
+        animator = gameObject.GetComponentInChildren<Animator>();
         rb = gameObject.GetComponent<Rigidbody>();
 
         maxHealth = stamina * 10;
@@ -80,8 +90,15 @@ public class PlayerPawn : Pawn
         {
             GCDTimer -= Time.deltaTime;
         }
+        if(target == null)
+        {
+            Destroy(currentEnemyPortrait);
+            Destroy(currentTargetIndicator);
+        }
 
-
+        Vector3 localVel = rb.transform.InverseTransformDirection(rb.velocity);
+        animator.SetFloat("playerVelocityZ", localVel.z);
+        animator.SetFloat("playerVelocityX", localVel.x);
 
     }
 
@@ -160,6 +177,7 @@ public class PlayerPawn : Pawn
         {
             if(casting) //if we are casting something and we move, cancel the casted spell
             {
+                animator.SetBool("castingSpell", false);
                 casting = false;
                 StopCoroutine(spellBeingCasted); //stops coroutines for our spell cast and the associated UI prefab
                 StopCoroutine(spellUITimer);
@@ -197,6 +215,7 @@ public class PlayerPawn : Pawn
             {
                 target = null;
                 Destroy(currentTargetIndicator);
+                Destroy(currentEnemyPortrait);
             }
         }
     }
@@ -212,14 +231,17 @@ public class PlayerPawn : Pawn
             {
                 Transform objectHit = hit.transform;
 
-                if (objectHit.gameObject.tag == "Enemy") //if it has an enemy tag, will be replaced with a layer eventually
+                if (objectHit.gameObject.GetComponent<Enemy>()) //if it has an enemy component, which is the parent of all enemies
                 {
                     target = objectHit.gameObject; //stores our target
                     if(currentTargetIndicator) //checks if we already had a targetIndicatorPrefab and destroys it if we do
                     {
                         Destroy(currentTargetIndicator);
+                        Destroy(currentEnemyPortrait);
                     }
                     currentTargetIndicator = Instantiate(targetIndicatorPrefab, target.transform); //instantiates a new targetIndicatorPrefab parented to our target
+                    currentEnemyPortrait = Instantiate(enemyPortraitPrefab, PlayerUICanvas.transform);
+                    currentEnemyPortrait.GetComponent<EnemyPortrait>().enemy = target.GetComponent<Enemy>();
                 }
             }
         }
@@ -343,6 +365,8 @@ public class PlayerPawn : Pawn
         if(spellToCast.castTime > 0)
         {
             casting = true;
+            animator.SetBool("castingSpell", true);
+            animator.Play("Base Layer.castingSpell");
             spellUITimer = StartCoroutine(CastSpellTimer(spellToCast.castTime));
         }
 
@@ -355,6 +379,7 @@ public class PlayerPawn : Pawn
         castedSpell.AddComponent<BaseSpell>(); //give it our spell script that handles everything in regards to the spell projectile
         castedSpell.GetComponent<BaseSpell>().PopulateVariables(originalSpell, originalTarget, damageNumberPrefab); //hands it the information required, the spell being cast and our target. All else will be handled on the BaseSpell script
         casting = false;
+        animator.SetBool("castingSpell", false);
     }
 
     public IEnumerator CastSpellTimer(float CastTimer)

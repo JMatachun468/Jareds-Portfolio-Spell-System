@@ -17,6 +17,8 @@ MonoBehaviour:
   testMat: {fileID: 2100000, guid: 860fcaf70d6e77e4bbb79f58047eb102, type: 2}
   spell3DModel: {fileID: 8552499976075887724, guid: c62c31a641e81764787884ddde47155c,
     type: 3}
+  castingAnimation: {fileID: -4303036906780820128, guid: 9d91a217b9ba1c84199df6148ef34fb3,
+    type: 3}
   manaCost: 5
   damage: 20
   castTime: 2

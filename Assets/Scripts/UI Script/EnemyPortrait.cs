@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UI;
 
-public class PlayerPortrait : MonoBehaviour
+public class EnemyPortrait : MonoBehaviour
 {
     [Header("GameObject References")]
-    [SerializeField]
-    private PlayerPawn player;
+    public Enemy enemy;
     public GameObject manaBar;
     public GameObject healthBar;
 
@@ -24,7 +23,6 @@ public class PlayerPortrait : MonoBehaviour
 
     void Start()
     {
-        player = GetComponentInParent<PlayerPawn>();
         mana = manaBar.GetComponentInChildren<Slider>();
         health = healthBar.GetComponentInChildren<Slider>();
         manaText = manaBar.GetComponentInChildren<TextMeshProUGUI>();
@@ -34,11 +32,12 @@ public class PlayerPortrait : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        health.maxValue = player.GetMaxHealth();
-        mana.maxValue = player.GetMaxMana();
+        if (!enemy) return;
+        health.maxValue = enemy.GetMaxHealth();
+        mana.maxValue = enemy.GetMaxMana();
 
-        mana.value = player.GetCurrentMana();
-        health.value = player.GetCurrentHealth();
+        mana.value = enemy.GetCurrentMana();
+        health.value = enemy.GetCurrentHealth();
 
         healthText.text = health.value.ToString() + " / " + health.maxValue.ToString();
         manaText.text = mana.value.ToString() + " / " + mana.maxValue.ToString();

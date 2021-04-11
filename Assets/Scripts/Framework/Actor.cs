@@ -13,30 +13,34 @@ public class Actor : MonoBehaviour
     protected int currentHealth = 0;
     protected int currentMana = 0;
     
-    public void takeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         currentHealth -= damage;
     }
 
+    public virtual void Die()
+    {
+        Destroy(gameObject);
+    }
 
     ///------------Utility Methods---------------///
     
-    public int getMaxHealth()
+    public int GetMaxHealth()
     {
         return maxHealth;
     }
 
-    public int getMaxMana()
+    public int GetMaxMana()
     {
         return maxMana;
     }
 
-    public int getCurrentHealth()
+    public int GetCurrentHealth()
     {
         return currentHealth;
     }
 
-    public int getCurrentMana()
+    public int GetCurrentMana()
     {
         return currentMana;
     }

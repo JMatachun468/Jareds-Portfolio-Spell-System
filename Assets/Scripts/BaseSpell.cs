@@ -81,7 +81,7 @@ public class BaseSpell : MonoBehaviour
             }
             if (other.gameObject.GetComponent<Actor>())
             {
-                target.GetComponent<Actor>().takeDamage(spell.damage);
+                target.GetComponent<Actor>().TakeDamage(spell.damage);
             }
             Destroy(gameObject);
         }
