@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0aa0571bb79e3e46948d516dc479a65, type: 3}
   m_Name: Data
   m_EditorClassIdentifier: 
-  spellName: 
+  spellName: Fwog
   abilitySprite: {fileID: 0}
   testMat: {fileID: 0}
   spell3DModel: {fileID: 0}
