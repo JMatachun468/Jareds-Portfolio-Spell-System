@@ -21,7 +21,8 @@ public class PlayerPawn : Pawn
     public GameObject SpellTimerUIPrefab; //prefab for cast timer bar
     private GameObject currentUITimer; //reference to current cast timer prefab in scene
     public GameObject damageNumberPrefab; //reference to prefab for our damage numbers
-    public bool draggingAbility = false;
+    public GameObject lastOpenedMenu; //reference to our most recent opened menu, used for closing menus with escape
+    public bool draggingAbility = false; //turns our camera controls off if we are dragging an ability
 
     [Header("ActionBarSlots")]
     public ActionBarSlot slot1;
@@ -66,9 +67,7 @@ public class PlayerPawn : Pawn
     public GameObject targetIndicatorPrefab; //prefab above target
 
     [Header("Animation Variables")]
-    public int rotationSlerpSpeed;
     public Animator animator;
-    public GameObject playerModel;
 
     //bool for interact
     public bool InteractE = false;
@@ -178,6 +177,7 @@ public class PlayerPawn : Pawn
             if(casting) //if we are casting something and we move, cancel the casted spell
             {
                 animator.SetBool("castingSpell", false);
+                animator.CrossFade("Base Layer.Idle", .05f);
                 casting = false;
                 StopCoroutine(spellBeingCasted); //stops coroutines for our spell cast and the associated UI prefab
                 StopCoroutine(spellUITimer);
@@ -366,7 +366,7 @@ public class PlayerPawn : Pawn
         {
             casting = true;
             animator.SetBool("castingSpell", true);
-            animator.Play("Base Layer.castingSpell");
+            animator.CrossFade("Base Layer.castingSpell", .1f);
             spellUITimer = StartCoroutine(CastSpellTimer(spellToCast.castTime));
         }
 
