@@ -21,7 +21,6 @@ public class PlayerPawn : Pawn
     public GameObject SpellTimerUIPrefab; //prefab for cast timer bar
     private GameObject currentUITimer; //reference to current cast timer prefab in scene
     public GameObject damageNumberPrefab; //reference to prefab for our damage numbers
-    public GameObject lastOpenedMenu; //reference to our most recent opened menu, used for closing menus with escape
     public bool draggingAbility = false; //turns our camera controls off if we are dragging an ability
 
     [Header("ActionBarSlots")]
@@ -211,6 +210,11 @@ public class PlayerPawn : Pawn
     {
         if(escape)
         {
+            if(UIManager.Instance.menuOpen())
+            {
+                UIManager.Instance.closeLastMenu();
+                return;
+            }
             if(target)
             {
                 target = null;

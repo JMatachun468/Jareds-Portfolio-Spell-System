@@ -10,8 +10,10 @@ public class SpellScriptableObject : ScriptableObject
     public Material testMat;
     public MeshFilter spell3DModel;
     public AnimationClip castingAnimation;
+    public SpellTypeEnum elementalClass;
     public int manaCost;
     public int damage;
+    public float rangeLimit;
     public float castTime;
     public float projectileSpeed;
     public bool isProjectile;
