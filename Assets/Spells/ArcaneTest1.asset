@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0aa0571bb79e3e46948d516dc479a65, type: 3}
-  m_Name: Frostbolt
+  m_Name: ArcaneTest1
   m_EditorClassIdentifier: 
-  spellName: Frostbolt
-  abilitySprite: {fileID: 21300000, guid: 86029d19eacbbd54f84ff7c7d8d08198, type: 3}
-  spriteColor: {r: 1, g: 1, b: 1, a: 1}
-  testMat: {fileID: 2100000, guid: a8d8a80d03a2d4542855000cf0872e49, type: 2}
-  spell3DModel: {fileID: 2968917677595414608, guid: df7a112dd7dd9074c94a224158f8a401,
+  spellName: ArcaneTest1
+  abilitySprite: {fileID: 21300000, guid: df3d85638a5a480449e1f16b6c292c9f, type: 3}
+  spriteColor: {r: 0.4326439, g: 0, b: 1, a: 1}
+  testMat: {fileID: 2100000, guid: 79c2c9201281e484a917eb0d7f9cd82e, type: 2}
+  spell3DModel: {fileID: 8552499976075887724, guid: c62c31a641e81764787884ddde47155c,
     type: 3}
   castingAnimation: {fileID: 0}
-  elementalClass: 0
-  manaCost: 10
-  damage: 5
+  elementalClass: 1
+  manaCost: 0
+  damage: 0
   rangeLimit: 0
-  castTime: 0
-  projectileSpeed: 0.1
+  castTime: 0.5
+  projectileSpeed: 0.2
   isProjectile: 1
   isDOT: 0

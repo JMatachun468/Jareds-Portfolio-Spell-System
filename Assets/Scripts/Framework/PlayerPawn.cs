@@ -57,6 +57,7 @@ public class PlayerPawn : Pawn
     public Coroutine spellUITimer; //stored coroutine for UI timer
     public float GlobalCoolDown; //GCD is a buffer between ability casts that begins countdown immediately after casting a spell, mostly effects instant cast or low cast time abilities
     public float GCDTimer; //timer for the GlobalCoolDown
+    public List<SpellScriptableObject> learnedSpells;
 
     [Header("Targeting Variables")]
     public GameObject target; //our currently selected target

@@ -3487,6 +3487,16 @@ MonoBehaviour:
   casting: 0
   GlobalCoolDown: 1.5
   GCDTimer: 0
+  learnedSpells:
+  - {fileID: 11400000, guid: 6ee44a085857cdc46add4840e4d48b7f, type: 2}
+  - {fileID: 11400000, guid: 339211724bb57a748b6d4001f78105d5, type: 2}
+  - {fileID: 11400000, guid: 9d0952ace57f3ca4e8e7648326821e11, type: 2}
+  - {fileID: 11400000, guid: 6f14f4fa8d5d46d46a15df97bb3fec5f, type: 2}
+  - {fileID: 11400000, guid: ec2cacb3454803a4ea8b0c5fcd51d35b, type: 2}
+  - {fileID: 11400000, guid: d00ec5bfcf21aaa4dbef18cde816d026, type: 2}
+  - {fileID: 11400000, guid: 7c6ef8307eb07d64b83a536034e6f0e1, type: 2}
+  - {fileID: 11400000, guid: 629e5a161f4dc6a40ae10f1206e8800a, type: 2}
+  - {fileID: 11400000, guid: cc8936ed03121444c8eb4b63d846651d, type: 2}
   target: {fileID: 0}
   currentEnemyPortrait: {fileID: 0}
   currentTargetIndicator: {fileID: 0}

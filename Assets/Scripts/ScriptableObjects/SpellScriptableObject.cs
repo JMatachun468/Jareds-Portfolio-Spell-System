@@ -7,6 +7,7 @@ public class SpellScriptableObject : ScriptableObject
 {
     public string spellName;
     public Sprite abilitySprite;
+    public Color spriteColor;
     public Material testMat;
     public MeshFilter spell3DModel;
     public AnimationClip castingAnimation;
@@ -18,5 +19,4 @@ public class SpellScriptableObject : ScriptableObject
     public float projectileSpeed;
     public bool isProjectile;
     public bool isDOT;
-
 }

@@ -19,6 +19,7 @@ public class ActionBarSlot : MonoBehaviour, IDragHandler , IBeginDragHandler, IE
     private bool dragging;
     public Image panel;
     private ActionBarSlot lastDraggedOverSlot;
+
     void Start()
     {
         player = GetComponentInParent<PlayerPawn>();
@@ -28,7 +29,6 @@ public class ActionBarSlot : MonoBehaviour, IDragHandler , IBeginDragHandler, IE
         startingPos = rt.localPosition;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(dragging)
@@ -51,6 +51,8 @@ public class ActionBarSlot : MonoBehaviour, IDragHandler , IBeginDragHandler, IE
         {
             ColorBlock temp = ColorBlock.defaultColorBlock;
             temp.pressedColor = new Color32(85, 85, 85, 255);
+            temp.normalColor = spellInSlot.spriteColor;
+            temp.highlightedColor = spellInSlot.spriteColor;
             gameObject.GetComponent<Button>().colors = temp;
         }
     }
@@ -107,8 +109,6 @@ public class ActionBarSlot : MonoBehaviour, IDragHandler , IBeginDragHandler, IE
             }
         }
 
-
-
         draggingIcon.transform.position = Mouse.current.position.ReadValue();
     }
 
@@ -121,13 +121,11 @@ public class ActionBarSlot : MonoBehaviour, IDragHandler , IBeginDragHandler, IE
 
         draggingIcon = Instantiate(new GameObject("draggingIcon"), GetComponentInParent<Canvas>().transform);
         draggingIcon.AddComponent<Image>();
+        draggingIcon.GetComponent<Image>().color = spellInSlot.spriteColor;
         draggingIcon.GetComponent<Image>().sprite = spellInSlot.abilitySprite;
         draggingIcon.GetComponent<Image>().raycastTarget = false;
         draggingIcon.GetComponent<RectTransform>().sizeDelta = new Vector2(75,75);
-
     }
-
-
 
     public void OnEndDrag(PointerEventData eventData)
     {

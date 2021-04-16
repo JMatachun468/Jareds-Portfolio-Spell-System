@@ -19,6 +19,7 @@ public class SpellBookSlot : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     private bool dragging;
     public Image panel;
     private ActionBarSlot lastDraggedOverSlot;
+    public Sprite emptySlotIcon;
     void Start()
     {
         player = GetComponentInParent<PlayerPawn>();
@@ -37,23 +38,20 @@ public class SpellBookSlot : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         }
         if (spellInSlot == null)
         {
-            Color32 darkGrey = new Color32(133, 133, 133, 255);
-            ColorBlock temp = new ColorBlock();
-            temp.normalColor = darkGrey;
-            temp.highlightedColor = darkGrey;
-            temp.pressedColor = darkGrey;
-            temp.selectedColor = darkGrey;
-            temp.disabledColor = darkGrey;
-            temp.colorMultiplier = 1f;
+            ColorBlock temp = ColorBlock.defaultColorBlock;
+            temp.pressedColor = Color.white;
             gameObject.GetComponent<Button>().colors = temp;
             gameObject.GetComponent<Image>().color = new Color32(214, 158, 118, 255);
+            gameObject.GetComponent<Image>().sprite = emptySlotIcon;
         }
         else
         {
             ColorBlock temp = ColorBlock.defaultColorBlock;
             temp.pressedColor = new Color32(85, 85, 85, 255);
+            temp.normalColor = spellInSlot.spriteColor;
+            temp.highlightedColor = spellInSlot.spriteColor;
             gameObject.GetComponent<Button>().colors = temp;
-            gameObject.GetComponent<Image>().color = Color.white;
+            gameObject.GetComponent<Image>().color = spellInSlot.spriteColor;
         }
     }
 
@@ -111,6 +109,7 @@ public class SpellBookSlot : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
         draggingIcon = Instantiate(new GameObject("draggingIcon"), GetComponentInParent<Canvas>().transform);
         draggingIcon.AddComponent<Image>();
+        draggingIcon.GetComponent<Image>().color = spellInSlot.spriteColor;
         draggingIcon.GetComponent<Image>().sprite = spellInSlot.abilitySprite;
         draggingIcon.GetComponent<Image>().raycastTarget = false;
         draggingIcon.GetComponent<RectTransform>().sizeDelta = new Vector2(75, 75);

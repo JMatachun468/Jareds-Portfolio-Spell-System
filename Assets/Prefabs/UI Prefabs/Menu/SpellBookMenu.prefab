@@ -132,11 +132,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  spellInSlot: {fileID: 11400000, guid: 6ee44a085857cdc46add4840e4d48b7f, type: 2}
+  spellInSlot: {fileID: 0}
   draggingIcon: {fileID: 0}
   startingPos: {x: 0, y: 0, z: 0}
   mousePos: {x: 0, y: 0}
   panel: {fileID: 5200245589046770418}
+  emptySlotIcon: {fileID: 21300000, guid: bfd0f632d6134a94da184c6fe4d60cbe, type: 3}
 --- !u!1 &272869159879273261
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +258,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5573307203404372013}
-        m_MethodName: changeSpellClass
+        m_MethodName: ChangeSpellClass
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1341258921145640439}
@@ -551,7 +552,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5573307203404372013}
-        m_MethodName: changeSpellClass
+        m_MethodName: ChangeSpellClass
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 7513601158397395069}
@@ -609,7 +610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 4.6, y: 0}
   m_SizeDelta: {x: 85, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5501662833670529126
@@ -680,7 +681,7 @@ RectTransform:
   - {fileID: 8549155052182270274}
   - {fileID: 4788694912768993026}
   m_Father: {fileID: 2190663147828082053}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1063,7 +1064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000061035156, y: 100}
+  m_AnchoredPosition: {x: 4.6000977, y: 100}
   m_SizeDelta: {x: 85, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7798106511130002989
@@ -1481,11 +1482,11 @@ RectTransform:
   - {fileID: 3341234216800239138}
   - {fileID: 5896387833227149907}
   m_Father: {fileID: 2190663147828082053}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -12, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2191540170841809743
@@ -1620,11 +1621,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  spellInSlot: {fileID: 11400000, guid: 6ee44a085857cdc46add4840e4d48b7f, type: 2}
+  spellInSlot: {fileID: 0}
   draggingIcon: {fileID: 0}
   startingPos: {x: 0, y: 0, z: 0}
   mousePos: {x: 0, y: 0}
   panel: {fileID: 7148242340699063903}
+  emptySlotIcon: {fileID: 21300000, guid: bfd0f632d6134a94da184c6fe4d60cbe, type: 3}
 --- !u!1 &2522174430913086191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1966,11 +1968,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  spellInSlot: {fileID: 11400000, guid: 6ee44a085857cdc46add4840e4d48b7f, type: 2}
+  spellInSlot: {fileID: 0}
   draggingIcon: {fileID: 0}
   startingPos: {x: 0, y: 0, z: 0}
   mousePos: {x: 0, y: 0}
   panel: {fileID: 7535875879548865813}
+  emptySlotIcon: {fileID: 21300000, guid: bfd0f632d6134a94da184c6fe4d60cbe, type: 3}
 --- !u!1 &3136766908321748308
 GameObject:
   m_ObjectHideFlags: 0
@@ -2184,6 +2187,7 @@ MonoBehaviour:
   startingPos: {x: 0, y: 0, z: 0}
   mousePos: {x: 0, y: 0}
   panel: {fileID: 1997993563278771023}
+  emptySlotIcon: {fileID: 21300000, guid: bfd0f632d6134a94da184c6fe4d60cbe, type: 3}
 --- !u!1 &3475382199089345988
 GameObject:
   m_ObjectHideFlags: 0
@@ -2658,11 +2662,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  spellInSlot: {fileID: 11400000, guid: 6ee44a085857cdc46add4840e4d48b7f, type: 2}
+  spellInSlot: {fileID: 0}
   draggingIcon: {fileID: 0}
   startingPos: {x: 0, y: 0, z: 0}
   mousePos: {x: 0, y: 0}
   panel: {fileID: 8780235014314416107}
+  emptySlotIcon: {fileID: 21300000, guid: bfd0f632d6134a94da184c6fe4d60cbe, type: 3}
 --- !u!1 &4405062776878263164
 GameObject:
   m_ObjectHideFlags: 0
@@ -3796,11 +3801,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  spellInSlot: {fileID: 11400000, guid: 9d0952ace57f3ca4e8e7648326821e11, type: 2}
+  spellInSlot: {fileID: 0}
   draggingIcon: {fileID: 0}
   startingPos: {x: 0, y: 0, z: 0}
   mousePos: {x: 0, y: 0}
   panel: {fileID: 2798723095058719763}
+  emptySlotIcon: {fileID: 21300000, guid: bfd0f632d6134a94da184c6fe4d60cbe, type: 3}
 --- !u!1 &6222421201419483773
 GameObject:
   m_ObjectHideFlags: 0
@@ -3921,7 +3927,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5573307203404372013}
-        m_MethodName: changeSpellClass
+        m_MethodName: ChangeSpellClass
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 6298881983124478762}
@@ -4077,96 +4083,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &6505853162872613261
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6308008684557715655}
-  - component: {fileID: 2489301945404653811}
-  - component: {fileID: 3594492097317648143}
-  - component: {fileID: 6688172298658690356}
-  m_Layer: 5
-  m_Name: placeholder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6308008684557715655
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6505853162872613261}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2190663147828082053}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2, y: 740}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2489301945404653811
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6505853162872613261}
-  m_CullTransparentMesh: 0
---- !u!114 &3594492097317648143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6505853162872613261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!114 &6688172298658690356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6505853162872613261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40b67c290c6f81147ac359ea02a19547, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedSpellType: 0
-  lastSelectedButton: {fileID: 0}
-  spellSlots: []
 --- !u!1 &6542380690631055109
 GameObject:
   m_ObjectHideFlags: 0
@@ -4202,7 +4118,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000061035156, y: -100}
+  m_AnchoredPosition: {x: 4.6000977, y: -100}
   m_SizeDelta: {x: 85, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5673477353469936442
@@ -4273,7 +4189,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1457252831523931679}
-  - {fileID: 6308008684557715655}
   - {fileID: 2302660896992162744}
   - {fileID: 1165247943340837539}
   m_Father: {fileID: 0}
@@ -5050,6 +4965,7 @@ MonoBehaviour:
   startingPos: {x: 0, y: 0, z: 0}
   mousePos: {x: 0, y: 0}
   panel: {fileID: 8328747184744846747}
+  emptySlotIcon: {fileID: 21300000, guid: bfd0f632d6134a94da184c6fe4d60cbe, type: 3}
 --- !u!1 &7750823423089739232
 GameObject:
   m_ObjectHideFlags: 0
@@ -5901,11 +5817,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  spellInSlot: {fileID: 11400000, guid: 6ee44a085857cdc46add4840e4d48b7f, type: 2}
+  spellInSlot: {fileID: 0}
   draggingIcon: {fileID: 0}
   startingPos: {x: 0, y: 0, z: 0}
   mousePos: {x: 0, y: 0}
   panel: {fileID: 8212556090252001741}
+  emptySlotIcon: {fileID: 21300000, guid: bfd0f632d6134a94da184c6fe4d60cbe, type: 3}
 --- !u!1 &8881365962059298863
 GameObject:
   m_ObjectHideFlags: 0
