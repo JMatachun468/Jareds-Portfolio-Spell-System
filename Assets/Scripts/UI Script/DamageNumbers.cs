@@ -18,6 +18,7 @@ public class DamageNumbers : MonoBehaviour
     void Update()
     {
         gameObject.GetComponent<TextMeshProUGUI>().text = damage.ToString();
+        transform.parent.rotation = Quaternion.LookRotation(transform.parent.position - Camera.main.transform.position);
 
         if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
         {

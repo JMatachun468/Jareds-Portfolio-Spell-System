@@ -10,22 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0aa0571bb79e3e46948d516dc479a65, type: 3}
-  m_Name: ArcaneTest2
+  m_Name: Frost Lance
   m_EditorClassIdentifier: 
-  spellName: ArcaneTest2
-  abilitySprite: {fileID: 21300000, guid: df3d85638a5a480449e1f16b6c292c9f, type: 3}
-  spriteColor: {r: 0.81476784, g: 0, b: 1, a: 1}
-  testMat: {fileID: 2100000, guid: 79c2c9201281e484a917eb0d7f9cd82e, type: 2}
-  spell3DModel: {fileID: 8552499976075887724, guid: c62c31a641e81764787884ddde47155c,
-    type: 3}
+  spellName: 
+  abilitySprite: {fileID: 0}
+  spriteColor: {r: 0, g: 0, b: 0, a: 0}
+  testMat: {fileID: 0}
+  spell3DModel: {fileID: 0}
   castingAnimation: {fileID: 0}
   characterClass: 0
-  elementalClass: 1
-  rank: 1
+  elementalClass: 0
+  rank: 0
   manaCost: 0
-  damage: 3
+  damage: 0
   rangeLimit: 0
-  castTime: 0.5
-  projectileSpeed: 0.2
-  isProjectile: 1
+  castTime: 0
+  projectileSpeed: 0
+  isProjectile: 0
   isDOT: 0
