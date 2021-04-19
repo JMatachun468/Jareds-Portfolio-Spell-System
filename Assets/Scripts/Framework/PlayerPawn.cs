@@ -247,6 +247,7 @@ public class PlayerPawn : Pawn
                         Destroy(currentTargetIndicator);
                         Destroy(currentEnemyPortrait);
                     }
+
                     currentTargetIndicator = Instantiate(targetIndicatorPrefab, target.transform); //instantiates a new targetIndicatorPrefab parented to our target
                     currentEnemyPortrait = Instantiate(enemyPortraitPrefab, PlayerUICanvas.transform);
                     currentEnemyPortrait.GetComponent<EnemyPortrait>().enemy = target.GetComponent<Enemy>();

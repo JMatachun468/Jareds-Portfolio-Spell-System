@@ -66,7 +66,7 @@ public class BaseSpell : MonoBehaviour
     }
     public virtual void trackTarget() //will follow target until it collides with them
     {
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, target.transform.position, projectileSpeed);
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, target.GetComponent<Enemy>().pivotPoint.transform.position, projectileSpeed);
     }
 
     public void OnTriggerEnter(Collider other) //checks to make sure collider is owned by the target and then executes code

@@ -14,7 +14,7 @@ public class TargetIndicator : MonoBehaviour
     void Update()
     {
         offset = transform.parent.position;
-        offset += new Vector3(0, (transform.parent.position.y / 1.25f), 0);
+        offset += new Vector3(0, transform.parent.GetComponentInParent<Enemy>().pivotPoint.transform.position.y / 0.45f, 0);
         transform.position = offset;
     }
 }

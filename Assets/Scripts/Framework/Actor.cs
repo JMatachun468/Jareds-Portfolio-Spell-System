@@ -6,6 +6,7 @@ public class Actor : MonoBehaviour
 {
     public bool Active = true;
     public bool CCImmune = false;
+    public GameObject pivotPoint;
 
     [SerializeField]
     protected int maxHealth = 0;
