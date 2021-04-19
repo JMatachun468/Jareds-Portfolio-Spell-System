@@ -43,7 +43,7 @@ public class PlayerPawn : Pawn
     public float rotationRate = 90;
     public float mouseSensitivity = 15;
     public float pitchRate = 90;
-    public Vector2 pitchRange = new Vector2(-89, 89); //clamp for camera controls
+    public Vector2 pitchRange = new Vector2(0, 89); //clamp for camera controls
     public bool InvertCamVerticle = true;
 
     [Header("Jump Variables")]
@@ -68,6 +68,9 @@ public class PlayerPawn : Pawn
 
     [Header("Animation Variables")]
     public Animator animator;
+
+    [Header("Interaction")]
+    public Interactable targetInteractable;
 
     //bool for interact
     public bool InteractE = false;
@@ -135,19 +138,8 @@ public class PlayerPawn : Pawn
         }
 
         float delta = (value * mouseSensitivity * pitchRate * Time.deltaTime);
-        nextPitch = nextPitch + delta;
 
-        // Restrain with in Range
-        if (nextPitch < pitchRange.x)
-        {
-            nextPitch = pitchRange.x;
-        }
-
-        if (nextPitch > pitchRange.y)
-        {
-            nextPitch = pitchRange.y;
-        }
-
+        nextPitch = Mathf.Clamp(nextPitch + delta, -90f, 0f);
         Quaternion r = Quaternion.Euler(nextPitch, 0, 0);
         CameraControl.transform.localRotation = r;
     }
@@ -168,6 +160,17 @@ public class PlayerPawn : Pawn
         }
 
         gameObject.transform.Rotate(Vector3.up * value * mouseSensitivity * rotationRate * Time.deltaTime);
+    }
+
+    public override void Interact(bool e)
+    {
+        if(e)
+        {
+            if (targetInteractable)
+            {
+                targetInteractable.Interact();
+            }
+        }
     }
 
     public override void Move(float horizontal, float vertical) //okay movement code, could be overhauled

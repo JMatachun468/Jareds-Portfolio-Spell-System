@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class SpellBookSlot : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -20,6 +21,8 @@ public class SpellBookSlot : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public Image panel;
     private ActionBarSlot lastDraggedOverSlot;
     public Sprite emptySlotIcon;
+    public TextMeshProUGUI spellName;
+    public TextMeshProUGUI spellRank;
     void Start()
     {
         player = GetComponentInParent<PlayerPawn>();

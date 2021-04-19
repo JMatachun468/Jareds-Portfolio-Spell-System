@@ -11,7 +11,9 @@ public class SpellScriptableObject : ScriptableObject
     public Material testMat;
     public MeshFilter spell3DModel;
     public AnimationClip castingAnimation;
+    public SpellClassEnum characterClass;
     public SpellTypeEnum elementalClass;
+    public int rank;
     public int manaCost;
     public int damage;
     public float rangeLimit;

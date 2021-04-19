@@ -20,8 +20,8 @@ public class UIManager : MonoBehaviour
     }
 
     public GameObject spellBookMenu;
-    [SerializeField]
-    private List<Menu> openMenus;
+    public GameObject spellTrainerMenu;
+    public List<Menu> openMenus;
 
     void Start()
     {
@@ -49,11 +49,38 @@ public class UIManager : MonoBehaviour
         GameObject temp = Instantiate(spellBookMenu, GetComponentInParent<Canvas>().transform);
         SpellBookMenu spellBookMenuRef = temp.GetComponent<SpellBookMenu>();
         Debug.Log(spellBookMenuRef.gameObject.name);
+        closeLastMenu();
         openMenus.Add(spellBookMenuRef);
+    }
+
+    public void openSpellTrainer()
+    {
+        if (openMenus.Count > 0)
+        {
+            SpellTrainerMenu existCheck = (SpellTrainerMenu)openMenus.Find(x => x.GetComponent<SpellTrainerMenu>());
+            if (existCheck)
+            {
+                openMenus.Remove(existCheck);
+                Destroy(existCheck.gameObject);
+                return;
+            }
+        }
+
+        GameObject temp = Instantiate(spellTrainerMenu, GetComponentInParent<Canvas>().transform);
+        SpellTrainerMenu spellTrainerMenuRef = temp.GetComponent<SpellTrainerMenu>();
+        closeLastMenu();
+        openMenus.Add(spellTrainerMenuRef);
+    }
+
+    public void removeMenu(Menu menu)
+    {
+        openMenus.Remove(menu);
+        Destroy(menu.gameObject);
     }
 
     public void closeLastMenu()
     {
+        if (openMenus.Count == 0) return;
         Destroy(openMenus[openMenus.Count - 1].gameObject);
         openMenus.RemoveAt(openMenus.Count - 1);
     }

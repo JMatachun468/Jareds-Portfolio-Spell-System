@@ -20,6 +20,7 @@ MonoBehaviour:
     type: 3}
   castingAnimation: {fileID: 0}
   elementalClass: 0
+  rank: 1
   manaCost: 10
   damage: 5
   rangeLimit: 0

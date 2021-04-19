@@ -21,6 +21,7 @@ MonoBehaviour:
   castingAnimation: {fileID: -4303036906780820128, guid: 9d91a217b9ba1c84199df6148ef34fb3,
     type: 3}
   elementalClass: 2
+  rank: 1
   manaCost: 5
   damage: 20
   rangeLimit: 0

@@ -25,7 +25,7 @@ public class ActionBarSlot : MonoBehaviour, IDragHandler , IBeginDragHandler, IE
         player = GetComponentInParent<PlayerPawn>();
         raycaster = GetComponentInParent<GraphicRaycaster>();
         rt = GetComponent<RectTransform>();
-        gameObject.GetComponent<Image>().sprite = spellInSlot.abilitySprite;
+        if(spellInSlot) gameObject.GetComponent<Image>().sprite = spellInSlot.abilitySprite;
         startingPos = rt.localPosition;
     }
 
